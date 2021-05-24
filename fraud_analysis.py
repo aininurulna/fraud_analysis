@@ -34,7 +34,9 @@ display(frequencies)
 #split the test and training data
 x_train, x_test, y_train, y_test = train_test_split(x_resampled, y_resampled, train_size=0.8, random_state=123)
 
-rfc = RandomForestClassifier()
+rfc = RandomForestClassifier(
+        n_estimators=50,
+        random_state=123)
 rfc.fit(x_train, y_train)
 predicted = rfc.predict(x_test)
 print(f'Accuracy Score:\n{accuracy_score(y_test, predicted)}')
